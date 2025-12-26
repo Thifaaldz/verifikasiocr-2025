@@ -44,3 +44,16 @@ services:
     volumes:
       - ./db/conf.d:/etc/mysql/conf.d
       - ./db/data:/var/lib/mysql
+
+  waha:
+    image: devlikeapro/waha:latest
+    container_name: waha
+    restart: unless-stopped
+    environment:
+      WAHA_API_KEY: ${WAHA_API_KEY}
+      WAHA_DASHBOARD_USERNAME: admin
+      WAHA_DASHBOARD_PASSWORD: ${WAHA_PASSWORD}
+      WAHA_DASHBOARD_ENABLED: "true"
+      WAHA_BASE_URL: http://waha:3000
+    ports:
+      - "3000:3000"

@@ -21,3 +21,7 @@ Livewire::setScriptRoute(function ($handle) {
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::post('/wa/send', [\App\Http\Controllers\WahaController::class, 'send']);
+
